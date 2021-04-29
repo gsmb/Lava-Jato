@@ -3,7 +3,7 @@ package sistema.lavajato.com.classes;
 public class Gerente extends Funcionario {
     private double plVendas;
     private Lavagens lavagens;
-    Lavadores lavadores;
+
 
     public Gerente(String nome, String cpf, double salario) {
         super(nome, cpf, salario);
@@ -14,20 +14,12 @@ public class Gerente extends Funcionario {
         this.plVendas = plVendas;
     }
 
-    public Gerente(String nome, String cpf, double salario, double plVendas, Lavagens lavagens, Lavadores lavadores) {
+    public Gerente(String nome, String cpf, double salario, double plVendas, Lavagens lavagens) {
         super(nome, cpf, salario);
         this.plVendas = plVendas;
         this.lavagens = lavagens;
-        this.lavadores = lavadores;
     }
 
-    public Lavadores getLavadores() {
-        return lavadores;
-    }
-
-    public void setLavadores(Lavadores lavadores) {
-        this.lavadores = lavadores;
-    }
 
     public Lavagens getLavagens() {
         return lavagens;
@@ -46,17 +38,6 @@ public class Gerente extends Funcionario {
     }
 
     public void imprimirPagamento() {
-        plVendas = (getSalario() + lavagens.getTotalLavagem()) * 0.3;
-        double salariofinal = plVendas + getSalario();
 
-        System.out.println("Gerente{" +
-                "quantidade= " + lavagens.getQtd() +
-                ", lavadores= " + lavadores.getNome() + "," +
-                ", Total valor= " + lavagens.getTotalLavagem() +
-                ", comissao= " + plVendas +
-                ", Total R$" + salariofinal
-                + '}');
     }
-
-
 }

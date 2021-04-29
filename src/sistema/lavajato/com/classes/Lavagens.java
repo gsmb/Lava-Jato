@@ -10,10 +10,17 @@ public class Lavagens implements Calculavel {
     Lavadores lavadores;
     Gerente gerente;
 
+
     public Lavagens(int qtd, double valor, Lavadores lavadores) {
         this.qtd = qtd;
         this.valorPorLavagem = valor;
         this.lavadores = lavadores;
+    }
+
+    public Lavagens(double totalLavagem, Lavadores lavadores, Gerente gerente) {
+        this.totalLavagem = totalLavagem;
+        this.lavadores = lavadores;
+        this.gerente = gerente;
     }
 
     public Lavagens(double totalLavagem) {
@@ -83,17 +90,25 @@ public class Lavagens implements Calculavel {
 
     @Override
     public void calcularLavadores() {
-        comissao = (valorPorLavagem * qtd)*0.1;
+        comissao = (valorPorLavagem * qtd) * 0.1;
         double total = comissao + lavadores.getSalario();
         System.out.println("Lavagens{" +
                 "quantidade= " + qtd +
                 ", valor= " + valorPorLavagem +
                 ", comissao= " + comissao +
                 ", lavador= " + lavadores.getNome() + "," +
-                ", Total R$" + total + '}');
+                "Total R$" + total + '}');
 
     }
-    private  void totalVendas(){
+    @Override
+    public void calcularGerente() {
         totalLavagem = qtd * valorPorLavagem;
+        comissao = gerente.getSalario() + totalLavagem * 0.3;
+        System.out.println(
+                "Gerente{" + gerente.getNome() +
+                "quantidade= " + qtd +
+                ", Total valor= " + totalLavagem +
+                ", comissao= " + totalLavagem +
+                ", Total R$" + comissao + '}');
     }
 }

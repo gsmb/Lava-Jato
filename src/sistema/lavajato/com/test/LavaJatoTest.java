@@ -1,21 +1,17 @@
 package sistema.lavajato.com.test;
 
-import sistema.lavajato.com.classes.Gerente;
-import sistema.lavajato.com.classes.Lavadores;
-import sistema.lavajato.com.classes.Lavagens;
+import sistema.lavajato.com.classes.*;
 
 public class LavaJatoTest {
     public static void main(String[] args) {
-        Lavadores lavador = new Lavadores("Pablo", "778.998.009-00", 1100);
-        Lavagens lavagens = new Lavagens(5, 10, lavador);
-        System.out.println(lavador);
-        lavagens.calcularLavadores();
-        System.out.println("-----------------------------------------");
-        Gerente gerente = new Gerente("Jonas", "876.445.321-98", 2000);
-        System.out.println(gerente);
-        gerente.imprimirPagamento();
 
+        Automovel auto1 = new Automovel("vw","gol g3","jhg-4567",TipoAutomovel.CARRO_UTILITARIO);
+        System.out.println(auto1);
 
+        CadastoCliente cada1 = new CadastoCliente("Pedro", "(62)99990-0098",auto1);
+        System.out.println(cada1);
 
     }
+
+
 }
